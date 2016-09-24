@@ -14,7 +14,16 @@ import RTLTask from './RTLTask';
 
 Elixir.config.css.rtlsass = {
     folder: 'sass',
-    search: '/**/*.+(sass|scss)'
+
+    search: '/**/*.+(sass|scss)',
+
+    plugin: require('gulp-sass'),
+
+    // https://github.com/sass/node-sass#options
+    pluginOptions: {
+        outputStyle: Elixir.inProduction ? 'compressed' : 'nested',
+        precision: 10
+    }
 };
 
 Elixir.extend('rtlsass', function(src, output, baseDir, options) {
