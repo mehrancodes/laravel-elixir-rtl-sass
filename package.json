@@ -1,6 +1,6 @@
 {
   "name": "laravel-elixir-rtl-sass",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "This is a tiny wrapper combined of rtlcss and sass for Laravel Elixir 6",
   "main": "dist/index.js",
   "scripts": {
