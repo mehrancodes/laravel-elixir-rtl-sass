@@ -1,7 +1,6 @@
 import gulp from 'gulp';
 import Elixir from 'laravel-elixir';
 import postcss from 'gulp-postcss';
-import sass from 'gulp-sass';
 import rtlcss from 'rtlcss';
 
 class RTLTask extends Elixir.Task {
@@ -27,7 +26,7 @@ class RTLTask extends Elixir.Task {
             gulp
             .src(this.src.path)
             .pipe(this.initSourceMaps())
-            .pipe(this.sass())
+            .pipe(this.compile())
             .on('error', this.onError())
             .pipe(this.rtl())
             .on('error', this.onError())
@@ -52,9 +51,15 @@ class RTLTask extends Elixir.Task {
     /**
      * Compile the SASS.
      */
-    sass() {
-        this.recordStep('Starting ' + this.ucName());
-        return sass();
+    compile() {
+        this.recordStep('Compiling ' + this.ucName());
+
+        let plugin = Elixir.Plugins.sass ||
+                     Elixir.config.css[this.name].plugin;
+
+        return plugin(
+            this.options || Elixir.config.css[this.name].pluginOptions
+        );
     }
 
     /**
