@@ -3,7 +3,7 @@
 
 This is a tiny wrapper combined of rtlcss and sass for Laravel Elixir 6
 
-This extension is exactly like [sass extension](https://laravel.com/docs/5.3/elixir#sass) for Laravel Elixir except that it uses [RTLCSS](http://rtlcss.com/) Framework for converting your compiled sass from `LTR` to `RTL`
+This extension works exactly like [sass extension](https://laravel.com/docs/5.3/elixir#sass) except that it uses [RTLCSS](http://rtlcss.com/) Framework for converting your compiled sass from `LTR` to `RTL`
 
 # Usage
 
